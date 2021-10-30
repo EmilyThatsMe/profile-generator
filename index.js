@@ -8,6 +8,9 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+const DIST_DIR = path.resolve(__dirname, 'dist')
+const outputPath = path.join(DIST_DIR, 'index.html');
+
 // Create empty arrays for team and id as place holders
 const teamArr = [];
 const idArr = [];
@@ -88,7 +91,7 @@ function startApp() {
                     addIntern();
                     break;
                 default:
-                    generateHTML();
+                    writeToFile();
             }
         })
     }
@@ -193,7 +196,16 @@ function startApp() {
                 addTeam();
             });
         }
-
+        
+    // write to file
+    function writeToFile() {
+            // Create dist directory for index.html if it doesnt exist
+            if (!fs.existsSync(DIST_DIR)) {
+                fs.mkdirSync(DIST_DIR)
+            }
+            console.log("Generating Team Profile.... ");
+            fs.writeFileSync(outputPath, render(teamArr), "utf-8");
+    }
 
 addManager();
 }
