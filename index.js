@@ -47,49 +47,21 @@ function startApp() {
                     return "You must enter a email";
                 }
             },
-        ]).then(answers => {
-            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail);
-            teamArr.push(manager);
-            idArr.push(answers.managerId);
-            addTeam();
-        });
-    }
-
-    // add an Employee
-    function addEmployee() {
-        inquirer.prompt([
             {
                 type: "input",
-                name: "employeeName",
-                message: "What is the employee's name?",
-                    validate: answer => {
-                        if(answer !== "") {
-                            return true;
-                        }
-                        return "You must enter a name";
-                    }
-            },
-            {
-                type: "input",
-                name: "employeeId",
-                message: "What is the employee's ID?",
-
-            },
-            {
-                type: "email",
-                name: "employeeEmail",
-                message: "What is the employee's email?",
+                name: "officeNumber",
+                message: "What is the manager's office number?",
                 validate: answer => {
                     if(answer !== "") {
                         return true;
                     }
-                    return "You must enter a email";
+                    return "You must enter an office number";
                 }
             },
         ]).then(answers => {
-            const employee = new Employee(answers.employeeName, answers.employeeId, answers.employeeEmail);
-            teamArr.push(employee);
-            idArr.push(answers.employeeId);
+            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber);
+            teamArr.push(manager);
+            idArr.push(answers.managerId);
             addTeam();
         });
     }
