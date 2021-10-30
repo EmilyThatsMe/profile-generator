@@ -144,6 +144,55 @@ function startApp() {
         });
     }
 
+        // add an intern
+        function addIntern() {
+            inquirer.prompt([
+                {
+                    type: "input",
+                    name: "internName",
+                    message: "What is the intern's name?",
+                        validate: answer => {
+                            if(answer !== "") {
+                                return true;
+                            }
+                            return "You must enter a name";
+                        }
+                },
+                {
+                    type: "input",
+                    name: "internId",
+                    message: "What is the intern's ID?",
+    
+                },
+                {
+                    type: "email",
+                    name: "internEmail",
+                    message: "What is the intern's email?",
+                    validate: answer => {
+                        if(answer !== "") {
+                            return true;
+                        }
+                        return "You must enter a email";
+                    }
+                },
+                {
+                    type: "input",
+                    name: "school",
+                    message: "What is the intern's school?",
+                    validate: answer => {
+                        if(answer !== "") {
+                            return true;
+                        }
+                        return "You must enter a school";
+                    }
+                },
+            ]).then(answers => {
+                const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.school);
+                teamArr.push(intern);
+                idArr.push(answers.internId);
+                addTeam();
+            });
+        }
 
 
 addManager();
