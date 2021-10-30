@@ -66,6 +66,84 @@ function startApp() {
         });
     }
 
+    // addTeam function
+    function addTeam() {
+        inquirer.prompt([
+            {
+                type: "list",
+                name: "teamList",
+                message: "Choose the team member you'd like to add",
+                choices: [
+                    "Engineer",
+                    "Intern",
+                    "End Application"
+                ]
+            }
+        ]).then(buildTeam => {
+            switch (buildTeam.teamList) {
+                case "Engineer":
+                    addEngineer();
+                    break;
+                case "Intern":
+                    addIntern();
+                    break;
+                default:
+                    generateHTML();
+            }
+        })
+    }
+
+
+    // add an engineer
+    function addEngineer() {
+        inquirer.prompt([
+            {
+                type: "input",
+                name: "engineerName",
+                message: "What is the engineer's name?",
+                    validate: answer => {
+                        if(answer !== "") {
+                            return true;
+                        }
+                        return "You must enter a name";
+                    }
+            },
+            {
+                type: "input",
+                name: "engineerId",
+                message: "What is the engineer's ID?",
+
+            },
+            {
+                type: "email",
+                name: "engineerEmail",
+                message: "What is the engineer's email?",
+                validate: answer => {
+                    if(answer !== "") {
+                        return true;
+                    }
+                    return "You must enter a email";
+                }
+            },
+            {
+                type: "input",
+                name: "github",
+                message: "What is the engineer's github username?",
+                validate: answer => {
+                    if(answer !== "") {
+                        return true;
+                    }
+                    return "You must enter a username";
+                }
+            },
+        ]).then(answers => {
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.github);
+            teamArr.push(engineer);
+            idArr.push(answers.engineerId);
+            addTeam();
+        });
+    }
+
 
 
 addManager();
