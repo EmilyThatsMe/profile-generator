@@ -7,9 +7,10 @@
 
   ## Table of Contents
   * [Installation](#Installation)
-  * [Contributors](#Contributors)
   * [Usage](#Usage)
+  * [Images](#Images)
   * [Video](#Video)
+  * [Contributors](#Contributors)
   * [Test](#Test)
   * [License](#License)
 
@@ -21,7 +22,12 @@
   ## Usage
  This program is meant to be used to generate profiles for project team members. The website that is generated will desplay information about each employee on a card. 
 
+  ## Images
+  ![screenshot 1](/images/Screencap1.jpeg)
+  ![screenshot 2](/images/Screencap2.jpeg)
+
  ## Video
+ View tutorial here: https://watch.screencastify.com/v/a2cIR5JMgZHzDit6GmuJ
 
   ## Contributors
   Emily Thon
