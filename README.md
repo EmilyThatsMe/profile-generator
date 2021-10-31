@@ -23,8 +23,8 @@
  This program is meant to be used to generate profiles for project team members. The website that is generated will desplay information about each employee on a card. 
 
   ## Images
-  ![screenshot 1](/images/Screencap1.jpeg)
-  ![screenshot 2](/images/Screencap2.jpeg)
+![screenshot 1](/assets/images/Screencap1.jpg)
+![screenshot 2](/assets/images/Screencap2.jpg)
 
  ## Video
  View tutorial here: https://watch.screencastify.com/v/a2cIR5JMgZHzDit6GmuJ
